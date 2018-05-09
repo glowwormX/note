@@ -46,3 +46,39 @@ $('#depart_input').combobox({
 
 
 ```
+
+### easUI前端渲染问题
+1. 取checkbox值
+$("#proddescribe").is(':checked')
+1. textbox动态设置readonly属性1. 
+$('#seriecode').attr('readonly','readonly');//失败   
+$("#seriecode").textbox({'readonly':'readonly'});//成功  
+
+
+### 请求
+```
+products 为全局变量
+1、
+	$.ajax({  
+		type:'post',  
+		url:'property/findAll', 
+		data:{
+			catalog:"防护等级",
+		}
+		dataType:'json',  
+		async:true,  
+		success:function(data){  
+			products = data.rows;
+		}  
+	});  
+2、
+	$.post('property/findAll',{
+		catalog:'防护等级',
+		}, function(data) {
+			products = data.rows;
+		}, 'json');
+3、
+	$.getJSON("property/findAll?catalog=防护等级",function(data){
+		products = data.rows;
+	});
+```

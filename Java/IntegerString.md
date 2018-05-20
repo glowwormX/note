@@ -13,7 +13,6 @@ Integer b = 1000;
 int c = 1000;
 a==b //false
 a==c //true
-Integer e = new
 ```
 
 * String

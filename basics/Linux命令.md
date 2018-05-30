@@ -1,6 +1,6 @@
-* ps -ef|grep tomcat  查看tomcat进程   
-* ps aux|grep nginx  查看有关的进程
-* lsof -i:端口号  查看端口号对应的进程
+* ps -ef|grep tomcat、ps aux|grep nginx  查看tomcat进程   
+* netstat -tunlp|grep 3306 查看端口号对应的进程   
+* lsof -i:3306  查看端口号对应的进程(yum install lsof)
 * kill -9 2254  杀死进程   
 * tail -f ../logs/catalina.out 跟踪日志   
 
@@ -80,10 +80,12 @@ vim：命令模式下
     
 a 输入   
     
-q!强制退出   
+:q!强制退出   
     
 ZZ保存退出   
-    
+ 
+u撤销
+ctrl r 回复
 V行选模式   
 y复制   
     

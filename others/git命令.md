@@ -10,4 +10,22 @@ git remote add origin （git@github.com:wangjiax9/practice.git） //关联远程
 git push -u origin master //把本地库的所有内容推送到远程库上
 
 
-https://www.cnblogs.com/xiaosongbiog/p/7003601.html
+https://www.cnblogs.com/xiaosongbiog/p/7003601.html   
+ 
+…or create a new repository on the command line   
+
+echo "# self-work" >> README.md   
+git init   
+git add README.md   
+git commit -m "first commit"   
+git remote add origin https://github.com/glowwormX/self-work.git   
+git push -u origin master   
+
+…or push an existing repository from the command line   
+
+git remote add origin https://github.com/glowwormX/self-work.git   
+git push -u origin master   
+
+…or import code from another repository   
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.   

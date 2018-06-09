@@ -13,9 +13,9 @@ echo 500 > /sys/class/backlight/intel_backlight/brightness 移动/home/xqw/下�
 创建链接：    
     ln -s /usr/eclipse/eclipse /home/xqw/桌面/eclipse   
     
-复制文件：cp xxx x/xx/xxx2   
-    
+复制文件：cp xxx x/xx/xxx2  
 复制文件夹：cp -r xxx x/xx/xxx2   
+删除文件：rm -rf xxx (r：递归，f直接删除不提示,rm -rf 的时候一定要小心，Linux没有回收站。)   
 修复安装    
 apt-get -f install   
 修复读取不了其他盘    

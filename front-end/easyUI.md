@@ -1,7 +1,7 @@
 ```java
 bool类型 ?c转成true or false  或者myBool?string('yes', 'no')
 
-combox:
+combobox:
 <input class="easyui-textbox" name="hasChild" id="hasChild" value="${bean.hasChild?c}" />
 //写死
 $('#hasChild').combobox({
@@ -45,6 +45,17 @@ $('#depart_input').combobox({
 		}]" />
 
 
+```
+
+### combotree
+```javascript
+//选择某个节点
+var tree = $('#in_participants').combotree('tree');//转换成父类tree才能用tree的方法
+var node = tree.tree('find', "S13442");//寻找
+tree.tree('check', node.target)//选择该节点 触发onBeforeSelect事件
+
+//直接设置值，不会触发onBeforeSelect	
+$('#in_participants').combotree("setValues",["S13442","CS001"])
 ```
 
 ### easUI前端渲染问题

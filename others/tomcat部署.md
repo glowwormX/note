@@ -29,5 +29,14 @@ eclispe上修改不了 servlet
 项目/.setting/org.eclipse.wst.common.project.facet.core.xml修改   
 
 
+1. tomcat优化   
+内存、并发、缓存   
+https://blog.csdn.net/kally_wang/article/details/74989885   
+https://blog.csdn.net/centre10/article/details/50639693   
+
+widows tomcat 注册成服务优化
+https://blog.csdn.net/lfsf802/article/details/46700553
+
+
 
 

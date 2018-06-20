@@ -34,8 +34,20 @@ eclispe上修改不了 servlet
 https://blog.csdn.net/kally_wang/article/details/74989885   
 https://blog.csdn.net/centre10/article/details/50639693   
 
-widows tomcat 注册成服务优化
+widows tomcat 注册成服务优化   
 https://blog.csdn.net/lfsf802/article/details/46700553
+
+jstat命令监控   
+https://www.cnblogs.com/lizhonghua34/p/7307139.html
+
+jconsole监控 配置   
+https://www.cnblogs.com/aguncn/p/4177989.html
+windows服务注册表配置：   
+-Djava.rmi.server.hostname=192.168.0.56   
+-Dcom.sun.management.jmxremote  
+-Dcom.sun.management.jmxremote.port="8099"   
+-Dcom.sun.management.jmxremote.authenticate="false"   
+-Dcom.sun.management.jmxremote.ssl="false"   
 
 
 

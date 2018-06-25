@@ -1,95 +1,56 @@
-# input±êÇ©  
-### µ¥Ñ¡¿ò  
-Ä¬ÈÏÑ¡ÖÐ <input type="radio" checked="checked" >  
-·Ö×é¼´£¬¶à¸öµ¥Ñ¡¿ò£¬¶¼ÔÚÒ»¸ö·Ö×éÀï£¬Í¬Ò»Ê±¼ä£¬Ö»ÄÜÑ¡ÖÐÒ»¸öµ¥Ñ¡¿ò£¬ÉèÖÃnameÊôÐÔÏàÍ¬¼´¿É 
-```  
-dota<input type="radio" name="activity" value="dota" > <br/>  
-LOL<input type="radio" name="activity"  value="lol"> <br/>  
+# é€‰æ‹©å™¨  
+## cssçš„ä¸‰ç§é€‰æ‹©å™¨  
 ```
-### ¸´Ñ¡¿ò
-```
-<p>½ñÌìÍíÉÏ×öÊ²Ã´£¿</p>
-Ñ§Ï°java<input type="checkbox" value="Ñ§Ï°java" > <br/>
-¶«¾©ÈÈ<input type="checkbox" checked="checked"  name="activity" value="tokyohot" > <br/>
-dota<input type="checkbox" value="dota" > <br/>
-LOL<input type="checkbox" value="lol"> <br/>
-```
-### ÏÂÀ­ÁÐ±í  
-```
-<select >
- <option >²ÔÀÏÊ¦</option>
- <option >¸ßÊ÷ÂêÀûÑÇ</option>
- <option >Ò£ÃÀ</option>
-</select>
-//---sizeÏÔÊ¾¼¸ÁÐ£¬multipleÊÇ·ñ¶àÑ¡£¬selectedÄ¬ÈÏÑ¡ÖÐ---
-<select size="3" multiple="multiple">
- <option >²ÔÀÏÊ¦</option>
- <option selected="selected">¸ßÊ÷ÂêÀûÑÇ</option>
- <option selected="selected">Ò£ÃÀ</option>
-</select>
-```
-### ÎÄ±¾Óò
-```
-<textarea>abc
-def
-</textarea>
-``` 
-### ÖØÖÃ°´Å¥  
-`<input type="reset" value="ÖØÖÃ">`
-
-# Ñ¡ÔñÆ÷  
-## cssµÄÈýÖÖÑ¡ÔñÆ÷  
-```
-1¡¢Ñ¡ÔñËùÓÐp±êÇ©
+1ã€é€‰æ‹©æ‰€æœ‰pæ ‡ç­¾
 <style>
-p{ <!-- Ñ¡ÔñËùÓÐp±êÇ© -->
+p{ <!-- é€‰æ‹©æ‰€æœ‰pæ ‡ç­¾ -->
   color:red;
 }
-#p1{ <!-- Ñ¡ÔñËùÓÐidÎªp1µÄ±êÇ© -->
+#p1{ <!-- é€‰æ‹©æ‰€æœ‰idä¸ºp1çš„æ ‡ç­¾ -->
   color:blue;
 }
-.class1{ <!-- Ñ¡ÔñËùÓÐclassÎªclass1µÄ±êÇ© -->
+.class1{ <!-- é€‰æ‹©æ‰€æœ‰classä¸ºclass1çš„æ ‡ç­¾ -->
   color:blue;
 }
 </style>
-p.blue{ <!-- classÎª"blue"µÄ±êÇ© -->
+p.blue{ <!-- classä¸º"blue"çš„æ ‡ç­¾ -->
   color:blue;
 }
 ```
-## jqueryÑ¡ÔñÆ÷  
+## jqueryé€‰æ‹©å™¨  
 ```
 $("p")  $("#p1")  $(".class1")  
 
-$("selector1 selector2")  :Ñ¡Ôñ selector1ÏÂµÄselector2ÔªËØ ¡£ 
+$("selector1 selector2")  :é€‰æ‹© selector1ä¸‹çš„selector2å…ƒç´  ã€‚ 
 
-$("selector:first") Âú×ãÑ¡ÔñÆ÷Ìõ¼þµÄµÚÒ»¸öÔªËØ  
+$("selector:first") æ»¡è¶³é€‰æ‹©å™¨æ¡ä»¶çš„ç¬¬ä¸€ä¸ªå…ƒç´   
 $("p:first")
-$("selector:last") Âú×ãÑ¡ÔñÆ÷Ìõ¼þµÄ×îºóÒ»¸öÔªËØ   
+$("selector:last") æ»¡è¶³é€‰æ‹©å™¨æ¡ä»¶çš„æœ€åŽä¸€ä¸ªå…ƒç´    
 
-$("selector:odd") Âú×ãÑ¡ÔñÆ÷Ìõ¼þµÄÆæÊýÔªËØ
-$("selector:even") Âú×ãÑ¡ÔñÆ÷Ìõ¼þµÄÅ¼ÊýÔªËØ
-ÒòÎªÊÇ»ùÁãµÄ£¬ËùÒÔµÚÒ»ÅÅµÄÏÂ±êÆäÊµÊÇ0(ÊÇÅ¼Êý) 
+$("selector:odd") æ»¡è¶³é€‰æ‹©å™¨æ¡ä»¶çš„å¥‡æ•°å…ƒç´ 
+$("selector:even") æ»¡è¶³é€‰æ‹©å™¨æ¡ä»¶çš„å¶æ•°å…ƒç´ 
+å› ä¸ºæ˜¯åŸºé›¶çš„ï¼Œæ‰€ä»¥ç¬¬ä¸€æŽ’çš„ä¸‹æ ‡å…¶å®žæ˜¯0(æ˜¯å¶æ•°) 
 
-
-```
-
-# Î»ÖÃ
-```
-HTML DOM position ÊôÐÔ   
-static 	           Ä¬ÈÏ¡£Î»ÖÃÉèÖÃÎª static µÄÔªËØ£¬ËüÊ¼ÖÕ»á´¦ÓÚÒ³ÃæÁ÷¸øÓèµÄÎ»ÖÃ
-                   £¨static ÔªËØ»áºöÂÔÈÎºÎ top¡¢bottom¡¢left »ò right ÉùÃ÷£©¡£
-relative 	Î»ÖÃ±»ÉèÖÃÎª relative µÄÔªËØ£¬¿É½«ÆäÒÆÖÁÏà¶ÔÓÚÆäÕý³£Î»ÖÃµÄµØ·½£¬
-                 Òò´Ë "left:20" »á½«ÔªËØÒÆÖÁÔªËØÕý³£Î»ÖÃ×ó±ß 20 ¸ö           ÏñËØµÄÎ»ÖÃ¡£
-absolute 	Î»ÖÃÉèÖÃÎª absolute µÄÔªËØ£¬¿É¶¨Î»ÓÚÏà¶ÔÓÚ°üº¬ËüµÄÔªËØµÄÖ¸¶¨×ø±ê¡£
-                 ´ËÔªËØµÄÎ»ÖÃ¿ÉÍ¨¹ý "left"¡¢"top"¡¢"right" ÒÔ¼°                     "bottom" ÊôÐÔÀ´¹æ¶¨¡£
-fixed 	          Î»ÖÃ±»ÉèÖÃÎª fixed µÄÔªËØ£¬¿É¶¨Î»ÓÚÏà¶ÔÓÚä¯ÀÀÆ÷´°¿ÚµÄÖ¸¶¨×ø±ê¡£
-                  ´ËÔªËØµÄÎ»ÖÃ¿ÉÍ¨¹ý "left"¡¢"top"¡¢"right" ÒÔ¼°"bottom" ÊôÐÔÀ´¹æ¶¨¡£²»ÂÛ´°¿Ú¹ö¶¯Óë·ñ£¬ÔªËØ¶¼»áÁôÔÚÄÇ¸öÎ»ÖÃ¡£
-                 ¹¤×÷ÓÚ IE7£¨strict Ä£Ê½£©¡£
 
 ```
-# ÎÄµµÁ÷
-´ÓÉÏµ½ÏÂ   
-ÒýÈëÍâ²¿ÎÄ¼þ(js£¬css)ÔòÏàµ±ÓÚÈëÕ»   
-$(function(){...})¼ÓÔØÍê³Éºó   
-jsÏÈ¶Ôvar±äÁ¿ºÍfunction½øÐÐÔ¤±àÒë£¬var±äÁ¿¾ùÎªundefined   
-document.write()±È½Ï¸´ÔÓ£¬ÑÓ³Ù¼ÓÔØ£¬²»»áÁ¢¼´ÈëÕ»£¬ÏÈÔØÍê±¾Ò³ÃæÔÙÈëÕ»   
+
+# ä½ç½®
+```
+HTML DOM position å±žæ€§   
+static 	           é»˜è®¤ã€‚ä½ç½®è®¾ç½®ä¸º static çš„å…ƒç´ ï¼Œå®ƒå§‹ç»ˆä¼šå¤„äºŽé¡µé¢æµç»™äºˆçš„ä½ç½®
+                   ï¼ˆstatic å…ƒç´ ä¼šå¿½ç•¥ä»»ä½• topã€bottomã€left æˆ– right å£°æ˜Žï¼‰ã€‚
+relative 	ä½ç½®è¢«è®¾ç½®ä¸º relative çš„å…ƒç´ ï¼Œå¯å°†å…¶ç§»è‡³ç›¸å¯¹äºŽå…¶æ­£å¸¸ä½ç½®çš„åœ°æ–¹ï¼Œ
+                 å› æ­¤ "left:20" ä¼šå°†å…ƒç´ ç§»è‡³å…ƒç´ æ­£å¸¸ä½ç½®å·¦è¾¹ 20 ä¸ª           åƒç´ çš„ä½ç½®ã€‚
+absolute 	ä½ç½®è®¾ç½®ä¸º absolute çš„å…ƒç´ ï¼Œå¯å®šä½äºŽç›¸å¯¹äºŽåŒ…å«å®ƒçš„å…ƒç´ çš„æŒ‡å®šåæ ‡ã€‚
+                 æ­¤å…ƒç´ çš„ä½ç½®å¯é€šè¿‡ "left"ã€"top"ã€"right" ä»¥åŠ                     "bottom" å±žæ€§æ¥è§„å®šã€‚
+fixed 	          ä½ç½®è¢«è®¾ç½®ä¸º fixed çš„å…ƒç´ ï¼Œå¯å®šä½äºŽç›¸å¯¹äºŽæµè§ˆå™¨çª—å£çš„æŒ‡å®šåæ ‡ã€‚
+                  æ­¤å…ƒç´ çš„ä½ç½®å¯é€šè¿‡ "left"ã€"top"ã€"right" ä»¥åŠ"bottom" å±žæ€§æ¥è§„å®šã€‚ä¸è®ºçª—å£æ»šåŠ¨ä¸Žå¦ï¼Œå…ƒç´ éƒ½ä¼šç•™åœ¨é‚£ä¸ªä½ç½®ã€‚
+                 å·¥ä½œäºŽ IE7ï¼ˆstrict æ¨¡å¼ï¼‰ã€‚
+
+```
+# æ–‡æ¡£æµ
+ä»Žä¸Šåˆ°ä¸‹   
+å¼•å…¥å¤–éƒ¨æ–‡ä»¶(jsï¼Œcss)åˆ™ç›¸å½“äºŽå…¥æ ˆ   
+$(function(){...})åŠ è½½å®ŒæˆåŽ   
+jså…ˆå¯¹varå˜é‡å’Œfunctionè¿›è¡Œé¢„ç¼–è¯‘ï¼Œvarå˜é‡å‡ä¸ºundefined   
+document.write()æ¯”è¾ƒå¤æ‚ï¼Œå»¶è¿ŸåŠ è½½ï¼Œä¸ä¼šç«‹å³å…¥æ ˆï¼Œå…ˆè½½å®Œæœ¬é¡µé¢å†å…¥æ ˆ   

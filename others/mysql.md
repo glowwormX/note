@@ -18,3 +18,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 
 * 创建用户user1密码123456，且可以外部链接   
 grant all on *.* to user1 identified by '123456';    
+
+
+* 基本操作  
+https://www.cnblogs.com/fly1988happy/archive/2011/12/15/2288554.html

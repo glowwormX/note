@@ -116,4 +116,23 @@ trigger_event指明了激活触发程序的语句的类型。trigger_event可以
 对于具有相同触发程序动作时间和事件的给定表，不能有两个触发程序。例如，对于某一表，不能有两个BEFORE UPDATE触发程序。但可以有1个BEFORE UPDATE触发程序和1个BEFORE INSERT触发程序，或1个BEFORE UPDATE触发程序和1个AFTER UPDATE触发程序。   
    
 trigger_stmt是当触发程序激活时执行的语句。   
+
+
+8.有时候我们需要按照in条件里的id顺序输出结果，可sql语句在不加order by的时候是按照asc排序的，下边的sql解决按照in条件顺序的id输出查询结果
+
+* mysql写法:
+
+SELECT * FROM EVENT WHERE eventId IN(443,419,431,440,420,414,509)  ORDER BY 
+
+INSTR(',443,419,431,440,420,414,509,',CONCAT(',',eventId,','))
+
+* oracle写法:
+
+select name from order where oderid in（111,222,333,444,555,666）order by instr('111,222,333,444,555,666',orderid)
+
+* sqlserver写法：
+
+Select * From Product Where id in (1,1588,15782,9887,54)  Order By charindex(','+ id +',', ',1,1588,15782,9887,54,')
+
+
    

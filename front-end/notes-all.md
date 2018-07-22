@@ -48,6 +48,8 @@ fixed 	          位置被设置为 fixed 的元素，可定位于相对于浏�
                  工作于 IE7（strict 模式）。
 
 ```
+示例：   
+https://blog.csdn.net/lxiang222/article/details/70340084   
 # 文档流
 从上到下   
 引入外部文件(js，css)则相当于入栈   

@@ -3,6 +3,13 @@
 * lsof -i:3306  查看端口号对应的进程(yum install lsof)
 * kill -9 2254  杀死进程   
 * tail -f ../logs/catalina.out 跟踪日志   
+* cat /etc/centos-release 查看centos版本
+* uname -r Linux 内核版本
+* getconf LONG_BIT 位数
+* uanme -a 内核+位数
+* 内存 free
+* 硬盘 fdisk -l 或 df
+* cpu cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
 
 管理员身份打开    
 sudo gedit /etc/rc.local   

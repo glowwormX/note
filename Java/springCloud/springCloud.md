@@ -17,5 +17,12 @@ spring-cloud-parent
 ├── spring-cloud-consumer -- 9100 消费者，熔断机制，spring-cloud-config客户端   
 ├── spring-cloud-consumer1 -- 9101 消费者1，熔断机制，spring-cloud-config客户端    
 └── spring-cloud-zuul -- 8888 网关（入口，控制登录token等）   
+
+http://localhost:8888/spring-cloud-consumer/hello/111?token=111
+多次访问会出现四种情况
+consumer调用provider
+consumer1调用provider
+consumer调用provider1
+consumer1调用provider1
 ```
 

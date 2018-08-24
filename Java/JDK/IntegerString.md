@@ -19,7 +19,7 @@ a==c //true
 
 存在于.class文件中的常量池，在运行期间被jvm装载，并且可以扩充。String的intern()方法就是扩充常量池的一个方法；当一个String实例str调用intern()方法时，java查找常量池中是否有相同unicode的字符串常量，如果有，则返回其引用，如果没有，则在常量池中增加一个unicode等于str的字符串并返回它的引用。  
 例3：  
-```
+```Java
         String str = new String("abc");//先在常量池中创建，再在堆中创建
         String str1 = "abc";//直接返回常量池中的引用
         String str2 = new String("abc");//根据常量池中已经存在的值在堆中创建另一个对象

@@ -1,5 +1,5 @@
 ## 单例
-```java
+``` java
 //饿汉模式，很饿很着急，所以类加载时即创建实例对象
 public class Singleton1 {
 	

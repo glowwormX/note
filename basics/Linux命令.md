@@ -15,7 +15,8 @@
 sudo gedit /etc/rc.local   
 sudo gedit /etc/profile    
  调整亮度   
-echo 500 > /sys/class/backlight/intel_backlight/brightness 移动/home/xqw/下载/xxx到usr/xxx：     mv /home/xqw/下载/xxx /usr/xxx     
+echo 500 > /sys/class/backlight/intel_backlight/brightness    
+移动/home/xqw/下载/xxx到usr/xxx：     mv /home/xqw/下载/xxx /usr/xxx     
     
 创建链接：    
     ln -s /usr/eclipse/eclipse /home/xqw/桌面/eclipse   

@@ -109,3 +109,8 @@ service iptables stop
 chkconfig iptables off   
 详细：  https://blog.csdn.net/u011846257/article/details/54707864    
 
+cengtos安装ubuntu deb软件
+sudo yum install alien -y   
+sudo yum install qtwebkit -y   
+alien -r sogoupinyin_2.2.0.0102_amd64.deb   
+rpm -ivh sogoupinyin-2.2.0.0102-2.x86_64.rpm   

@@ -105,8 +105,7 @@ p粘贴
     
 service iptables stop   
     
-设置默认关闭   
-    
+设置默认关闭     
 chkconfig iptables off   
-    
+详细：  https://blog.csdn.net/u011846257/article/details/54707864    
 

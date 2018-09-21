@@ -49,7 +49,7 @@ public class Test {
         Map<Long, Map<Integer, Long>> tradeNumMap = list.stream().
                 collect(Collectors.groupingBy(OrdersDO::getAppId,
                         Collectors.groupingBy(OrdersDO::getStatus,
-                                Collectors.counting())));
+                                Collectors.counting()))); //Collectors.summarizingInt()求和等
         System.out.println(tradeNumMap);
 
         //每个应用下交易笔数按数量排序

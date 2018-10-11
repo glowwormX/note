@@ -59,3 +59,5 @@ public class Test {
     }
 }
 ```
+## Optional使用场景
+http://weishu.me/2015/12/08/use-optional-avoid-nullpointexception/

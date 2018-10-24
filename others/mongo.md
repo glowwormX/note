@@ -59,13 +59,6 @@
         UpdateResult updateResult = mongoTemplate.updateFirst(query, update, Staff.class);
 ```
 
-### 对查询的结果的字段进行过滤
-``` java 
-Query query = Query.query(Criteria.where("staffId").is(staffId).and("delete").is(MbxtConstant.IS_NO_DELETE));
-//只显示staffId 和 signDetails 列表中delete为0的值
-query.fields().include("staffId").elemMatch("signDetails",Criteria.where("delete").is(MbxtConstant.IS_NO_DELETE));
-return mongoTemplate.findOne(query, ExpressSigned.class);
-```
 ### 2.向List中新增数据
 ``` java
         Query query = Query.query(Criteria.where("id").is(staffId));
@@ -321,6 +314,7 @@ spring-mongodb-data  返回指定字段
   第二种方式
        
        Query query = Query.query(Criteria.where("staffId").is(staffId).and("delete").is(MbxtConstant.IS_NO_DELETE));
+       //elemMatch 只能返回一个
         query.fields().include("staffId").elemMatch("signDetails",Criteria.where("delete").is(MbxtConstant.IS_NO_DELETE));
         return mongoTemplate.findOne(query, ExpressSigned.class);
 >

@@ -45,6 +45,35 @@
 ``` 
 ####
 
+### 对查询的结果的字段进行过滤	
+``` 
+db.expressSigned.aggregate([
+    {
+        $project: {
+            "signDetails": {
+                $filter: {
+                    input: "$signDetails",
+                    as: "item",
+                    cond: { 
+                        $eq: [ '$$item.delete', 0 ]
+                    }
+                }
+            }
+        }
+    }
+])
+``` 
+``` java 	
+       Aggregation project = newAggregation(
+                project().and(filter("signDetails")
+                        .as("item")
+                        .by(valueOf( "item.delete").equalToValue(0)))
+                        .as("signDetails")
+        );
+      ExpressSigned expressSigned2 = mongoTemplate.aggregate(project, "expressSigned",                                                    ExpressSigned.class).getUniqueMappedResult();
+
+```
+
 ### 1.更新List中符合条件的内容
       以下代码为更新人员id为staffId, 图片list(imgs)中type为'type'的人员图片信息
 

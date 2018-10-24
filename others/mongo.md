@@ -8,7 +8,10 @@
       （./mongodump -d mbxt）
       （./mongodump -d mbxt -o /home/hlkj/Documents/mongobak/shellbak/test）
       还原
-      mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 --drop 文件存在路径
+        整库
+        mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 (--drop) 文件夹路径
+        单表
+        mongorestore -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -c 表名 文件路径
       （./mongorestore -d mbxt dump/mbxt/）
       （./mongorestore -d mbxt /home/hlkj/Documents/mongobak/shellbak/test）
       导出表，或者表中部分字段
@@ -16,6 +19,31 @@
 ```
 
 #### 
+
+### 副本集搭建
+``` 
+    启动三台 replSet设置同一个名字
+    ./mongod --port 2001 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
+    ./mongod --port 2002 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
+    ./mongod --port 2003 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
+
+    主服务连接进去设置：
+    mongo --port 2001
+    rs.initiate()
+    rs.add("<hostname>:2002")
+    rs.add("<hostname>:2003")
+    rs.conf()
+    
+    2.1.0 spring-mongo-data 注入
+
+    @Bean
+    MongoTransactionManager transactionManager(MongoDbFactory dbFactory) {
+        return new MongoTransactionManager(dbFactory);
+    }
+
+    @Transactional
+``` 
+####
 
 ### 1.更新List中符合条件的内容
       以下代码为更新人员id为staffId, 图片list(imgs)中type为'type'的人员图片信息

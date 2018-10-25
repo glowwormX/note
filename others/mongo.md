@@ -363,5 +363,20 @@ spring-mongodb-data  返回指定字段
         Aggregation aggregation = Aggregation.newAggregation(lookupOperation, match);
 
         List<ProjectStorage> results = mongoTemplate.aggregate(aggregation, "projectStorage", ProjectStorage.class).getMappedResults();
+        
+        4.0：addFields springdata暂不支持
+        db.projectStorage.aggregate([
+      { "$addFields": { "projectId": { "$toObjectId": "$projectId" }}},
+      {
+        $lookup:
+          {
+            from: "project",
+            localField: "projectId",
+            foreignField: "_id",
+            as: "project"
+          }
+        },
+      { "$match" : { "project.name" : { "$regex" : "^.*项目.*$", "$options" : "i" } } }
+      ]).pretty()
 
  

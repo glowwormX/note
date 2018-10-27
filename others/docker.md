@@ -24,7 +24,17 @@ vi  /etc/docker/daemon.json
 
 systemctl restart docker
 输入docker version 返回版本信息则安装正常。
+
+切换到容器shell中   
+docker exec -it some-mysql bash   
+退出输入：   
+exit   
+查看日志   
+docker logs some-mysql
 ```
 
 制作docker centos镜像   
-https://blog.csdn.net/JXYZH11/article/details/79112655   
+https://blog.csdn.net/JXYZH11/article/details/79112655
+
+Docker启动mysql 修改密码   
+https://www.cnblogs.com/airycode/p/9165894.html

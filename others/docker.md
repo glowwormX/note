@@ -32,6 +32,8 @@ exit
 查看日志   
 docker logs some-mysql
 ```
+基本命令   
+http://blog.51cto.com/ityouknow/2083688
 
 制作docker centos镜像   
 https://blog.csdn.net/JXYZH11/article/details/79112655

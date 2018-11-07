@@ -135,4 +135,19 @@ select name from order where oderid in（111,222,333,444,555,666）order by inst
 Select * From Product Where id in (1,1588,15782,9887,54)  Order By charindex(','+ id +',', ',1,1588,15782,9887,54,')
 
 
+
+9.基本函数
+```
+1.decode(oracle)
+SELECT DEPTNO, DECODE(DEPTNO,10,"部门1",20,"部门2","部门3") FROM EMP;
+if(DEPTNO==10)部门1 elseif(DEPTNO==20)部门2 else 部门3
+2.case(sql)
+SELECT DEPTNO,
+   CASE WHEN DEPTNO=10 THEN '部门1'
+        WHEN DEPTNO=20 THEN '部门2'
+        ELSE '部门3' 
+   END
+FROM EMP
+
    
+ ```

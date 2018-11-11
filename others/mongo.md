@@ -22,7 +22,7 @@
 
 ### 副本集搭建
 ``` 
-    启动三台 replSet设置同一个名字
+   启动三台 replSet设置同一个名字
     ./mongod --port 2001 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
     ./mongod --port 2002 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
     ./mongod --port 2003 --bind_ip 0.0.0.0 --dbpath /data/db/ --replSet rs0
@@ -34,6 +34,46 @@
     rs.add("<hostname>:2003")
     rs.conf()
     
+    rs.initiate({"_id":"rsMbxt","members":[
+        {"_id":1,
+        "host":"ip:2001",
+        "priority":1
+        },
+        {"_id":2,
+        "host":"ip:2002",
+        "priority":1
+        },
+        {"_id":3,
+        "host":"ip:2003",
+        "priority":1
+        }
+        ]})
+    
+    副本集加权限
+    先无权限中配置副本集、创建账号
+    use admin
+    db.createUser({user:"root",pwd:"mbxt123456",roles:["userAdminAnyDatabase"]})
+    use mbxt
+    db.createUser({user: "root",pwd: "mbxt123456",roles: [ { role: "readWrite", db: "mbxt" } ]})
+    关闭后添加mongo启动配置文件中添加auth=true 和 keyFile=<path>(创建ssl文件供副本集之间认证)
+    再次启动所有服务，登录后使用admin数据库为账号添加修改副本集的权限
+    use admin
+    db.auth('<user>','<psw>')
+    db.grantRolesToUser( "root" , [ { role: "dbOwner", db: "admin" },{ "role": "clusterAdmin", "db": "admin" },
+    { "role": "userAdminAnyDatabase", "db": "admin" },
+    { "role": "dbAdminAnyDatabase", "db": "admin" },
+    { role: "root", db: "admin" } ])
+    参考：
+    https://www.cnblogs.com/Joans/p/7724144.html
+
+    修改配置
+    var config = rs.config()
+    config.members[0].host = 'ip:2001'
+    config.members[1].host = 'ip:2002'
+    config.members[2].host = 'ip:2003'
+    rs.reconfig(config)
+
+    
     2.1.0 spring-mongo-data 注入
 
     @Bean
@@ -42,6 +82,7 @@
     }
 
     @Transactional
+    public void do(){}
 ``` 
 ####
 

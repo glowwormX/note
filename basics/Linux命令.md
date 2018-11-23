@@ -114,3 +114,7 @@ sudo yum install alien -y
 sudo yum install qtwebkit -y   
 alien -r sogoupinyin_2.2.0.0102_amd64.deb   
 rpm -ivh sogoupinyin-2.2.0.0102-2.x86_64.rpm   
+
+centos 7   
+firewall-cmd --zone=public --add-port=27017/tcp --permanent   
+systemctl restart firewalld.service   

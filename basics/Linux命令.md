@@ -118,3 +118,9 @@ rpm -ivh sogoupinyin-2.2.0.0102-2.x86_64.rpm
 centos 7   
 firewall-cmd --zone=public --add-port=27017/tcp --permanent   
 systemctl restart firewalld.service   
+
+ubuntu
+sudo ufw status
+sudo ufw allow 80
+sudo ufw enable
+sudo ufw reload

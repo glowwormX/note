@@ -113,6 +113,16 @@ db.expressSigned.aggregate([
         );
       ExpressSigned expressSigned2 = mongoTemplate.aggregate(project, "expressSigned",                                                    ExpressSigned.class).getUniqueMappedResult();
 
+      
+      Aggregation aggregation = newAggregation(match(Criteria.where("deviceId").is(deviceId)),
+        project().and(filter("details")
+                .as("item")
+                .by(BooleanOperators.And.and(ComparisonOperators.Lte.valueOf("item.realTime").lessThanEqualToValue(endTime + 60000),
+                        ComparisonOperators.Gte.valueOf("item.realTime").greaterThanEqualToValue(startTime - 60000))))
+                .as("details")
+
+      );
+      List<DeviceStatusDataLog> results = mongoTemplate.aggregate(aggregation, "deviceStatusDataLog", DeviceStatusDataLog.class).getMappedResults();
 ```
 
 ### 1.更新List中符合条件的内容

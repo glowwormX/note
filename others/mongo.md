@@ -84,8 +84,18 @@
     @Transactional
     public void do(){}
 ``` 
-####
-
+### 分片
+```
+机器 10.20.11.225 :1个mongos路由进程，3个配置服务器进行
+机器 10.20.20.239 :第一个分片
+机器 10.20.21.27 :第二个分片
+机器 10.20.23.50 :第三个分片
+1、配置服务器(mongod configsvr = true)
+2、路由服务器(mongos 不需要dbpath configdb=10.20.11.225:20000,10.20.11.225:20001,10.20.11.225:20002)
+3、分片服务器(mongod)
+4、登录mongos，添加配置分片服务器
+https://www.jianshu.com/p/6648efd24f25
+```
 ### 对查询的结果的字段进行过滤	
 ``` 
 db.expressSigned.aggregate([

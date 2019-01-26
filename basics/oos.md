@@ -15,3 +15,8 @@
 https://blog.csdn.net/rabbit_in_android/article/details/49976101   
 
 https://www.cnblogs.com/ranjiewen/p/7141696.html   
+
+
+
+文件系统
+磁盘基本概念 cyl柱面，head磁头，sec扇区

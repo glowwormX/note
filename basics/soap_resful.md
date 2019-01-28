@@ -4,6 +4,7 @@ soa:面向服务架构，微服务：粒度更小
 soap:基于http和xml的协议 https://www.cnblogs.com/huanghongbo/p/5920123.html   
 restful:对数据的crud，无状态，轻量，支持多种数据格式 https://blog.csdn.net/defonds/article/details/49000993   
 WebService:在服务器上基于某种协议的程序，可以为soap和rest https://stevenjohn.iteye.com/blog/1442776   
+设计原则 https://blog.csdn.net/houjixin/article/details/54315835
 ```
   Restful url只用名词不用动词
   REST对于资源型服务接口来说很合适，同时特别适合对于效率要求很高，但是对于安全要求不高的场景。

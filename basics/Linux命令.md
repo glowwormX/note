@@ -124,3 +124,8 @@ sudo ufw status
 sudo ufw allow 80   
 sudo ufw enable   
 sudo ufw reload   
+
+ubuntu deepin软件 qq 微信等   
+http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/   
+https://github.com/Jactor-Sue/Deepin-Apps-Installation   
+https://www.jianshu.com/p/f912a33ea15a   

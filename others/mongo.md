@@ -96,44 +96,6 @@
 4、登录mongos，添加配置分片服务器
 https://www.jianshu.com/p/6648efd24f25
 ```
-### 对查询的结果的字段进行过滤	
-``` 
-db.expressSigned.aggregate([
-    {
-        $project: {
-            "signDetails": {
-                $filter: {
-                    input: "$signDetails",
-                    as: "item",
-                    cond: { 
-                        $eq: [ '$$item.delete', 0 ]
-                    }
-                }
-            }
-        }
-    }
-])
-``` 
-``` java 	
-       Aggregation project = newAggregation(
-                project().and(filter("signDetails")
-                        .as("item")
-                        .by(valueOf( "item.delete").equalToValue(0)))
-                        .as("signDetails")
-        );
-      ExpressSigned expressSigned2 = mongoTemplate.aggregate(project, "expressSigned",                                                    ExpressSigned.class).getUniqueMappedResult();
-
-      
-      Aggregation aggregation = newAggregation(match(Criteria.where("deviceId").is(deviceId)),
-        project().and(filter("details")
-                .as("item")
-                .by(BooleanOperators.And.and(ComparisonOperators.Lte.valueOf("item.realTime").lessThanEqualToValue(endTime + 60000),
-                        ComparisonOperators.Gte.valueOf("item.realTime").greaterThanEqualToValue(startTime - 60000))))
-                .as("details")
-
-      );
-      List<DeviceStatusDataLog> results = mongoTemplate.aggregate(aggregation, "deviceStatusDataLog", DeviceStatusDataLog.class).getMappedResults();
-```
 
 ### 1.更新List中符合条件的内容
       以下代码为更新人员id为staffId, 图片list(imgs)中type为'type'的人员图片信息
@@ -409,7 +371,8 @@ spring-mongodb-data  返回指定字段
         return mongoTemplate.findOne(query, ExpressSigned.class);
 >
 
-关联查询 问题：_id为ObjectId类型 projectId为String 不能装换
+ ## 聚合查询
+ ### 关联查询 问题：_id为ObjectId类型 projectId为String 不能装换
 
         LookupOperation lookupOperation = LookupOperation.newLookup().
                 from("project").
@@ -440,4 +403,45 @@ spring-mongodb-data  返回指定字段
       { "$match" : { "project.name" : { "$regex" : "^.*项目.*$", "$options" : "i" } } }
       ]).pretty()
 
- 
+ ### 对查询的结果的字段进行过滤	
+``` 
+//将列表signDetails只显示delete为0的
+db.expressSigned.aggregate([
+    {
+        $project: {
+            "signDetails": {
+                $filter: {
+                    input: "$signDetails",
+                    as: "item",
+                    cond: { 
+                        $eq: [ '$$item.delete', 0 ]
+                    }
+                }
+            }
+        }
+    }
+])
+``` 
+``` java 	
+//将列表signDetails只显示delete为0的
+       Aggregation project = newAggregation(
+                project().and(filter("signDetails")
+                        .as("item")
+                        .by(valueOf( "item.delete").equalToValue(0)))
+                        .as("signDetails")
+        );
+      ExpressSigned expressSigned2 = mongoTemplate.aggregate(project, "expressSigned",ExpressSigned.class).getUniqueMappedResult();
+
+      
+//将列表details只显示realTime再某个区间内的
+      Aggregation aggregation = newAggregation(match(Criteria.where("deviceId").is(deviceId)),
+        project().and(filter("details")
+                .as("item")
+                .by(BooleanOperators.And.and(ComparisonOperators.Lte.valueOf("item.realTime").lessThanEqualToValue(endTime + 60000),
+                        ComparisonOperators.Gte.valueOf("item.realTime").greaterThanEqualToValue(startTime - 60000))))
+                .as("details")
+
+      );
+      List<DeviceStatusDataLog> results = mongoTemplate.aggregate(aggregation, "deviceStatusDataLog", DeviceStatusDataLog.class).getMappedResults();
+```
+

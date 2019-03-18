@@ -374,21 +374,6 @@ spring-mongodb-data  返回指定字段
  ## 聚合查询
  ### 关联查询 问题：_id为ObjectId类型 projectId为String 不能装换
 ```
-  LookupOperation lookupOperation = LookupOperation.newLookup().
-          from("project").
-          localField("projectId").
-          foreignField("_id").
-          as("project");
-  Pattern pattern = Pattern.compile("^.*" + searchValue + ".*$", Pattern.CASE_INSENSITIVE);
-
-  AggregationOperation match = Aggregation.match(Criteria.where("project.name").regex(pattern));
-
-
-  Aggregation aggregation = Aggregation.newAggregation(lookupOperation, match);
-
-  List<ProjectStorage> results = mongoTemplate.aggregate(aggregation, "projectStorage", ProjectStorage.class).getMappedResults();
-
-
   db.projectStorage.aggregate([
 { "$addFields": { "projectId": { "$toObjectId": "$projectId" }}},
 {
@@ -406,9 +391,9 @@ spring-mongodb-data  返回指定字段
 spring-data-mongo：addFields springdata暂不支持
 1. 使用$project替代，缺点除了projectId外都不显示，需要一个一个project("field"...)显示
  project().and(ConvertOperators.valueOf("projectId").convertToObjectId()).as("projectId")
-2. 新建一个类对原生命令行解析
+1. 新建一个类对原生命令行解析
 
-```
+```java
 public class JsonAggOperation implements AggregationOperation {
     private String jsonOperation;
 
@@ -420,8 +405,23 @@ public class JsonAggOperation implements AggregationOperation {
     public Document toDocument(AggregationOperationContext aggregationOperationContext) {
         return aggregationOperationContext.getMappedObject(Document.parse(jsonOperation));
     }
-```
 }
+```
+```java
+        Aggregation agg = Aggregation.newAggregation(
+                new JsonAggOperation("{ '$addFields': { 'projectId': { '$toObjectId': '$projectId' }}}"),
+//                使用$project
+//                project("blastCompanyId", "projectId")
+//                        .and(ConvertOperators.valueOf("projectId").convertToObjectId()).as("projectId"),
+                lookup("project", "projectId", "_id" , "project"),
+                match(Criteria.where("project.name").regex("^.*项目.*$")),
+                unwind("project")
+        );
+        List<ProjectStorage.ProjectStorageProject> projectStorage = mongoTemplate.aggregate(agg, "projectStorage", ProjectStorage.ProjectStorageProject.class).getMappedResults();
+
+
+```
+
        
  ### 对查询的结果的字段进行过滤	
 ``` 

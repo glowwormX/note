@@ -445,3 +445,15 @@ db.expressSigned.aggregate([
       List<DeviceStatusDataLog> results = mongoTemplate.aggregate(aggregation, "deviceStatusDataLog", DeviceStatusDataLog.class).getMappedResults();
 ```
 
+```
+$addFields 增加字段
+$replaceRoot 可以将该字段成为父节点而忽略其他字段
+$project 控制是否忽略字段，修改字段值等，也可以将多个属性变成数组（官方文档栗子）
+$lookup 关联查询 可以在addFileds或者$project使用$toObjectId转换id
+$redact 对当前字段和所有内嵌文档的字段进行过滤
+$sample 随机取样
+$limit取前几 $skip 跳过前几
+$unwind 将数组降维，共同字段冗余
+$sortByCount 对数组进行统计
+```
+

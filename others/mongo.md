@@ -388,6 +388,12 @@ spring-mongodb-data  返回指定字段
 { "$match" : { "project.name" : { "$regex" : "^.*项目.*$", "$options" : "i" } } }
 ]).pretty()
 ```
+```
+ //将关联后的 project和父级字段合并
+ {$replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$project", 0 ] }, "$$ROOT" ] } }},
+ //再删除project
+ { $project: { project: 0 } }
+```
 spring-data-mongo：addFields springdata暂不支持
 1. 使用$project替代，缺点除了projectId外都不显示，需要一个一个project("field"...)显示
  project().and(ConvertOperators.valueOf("projectId").convertToObjectId()).as("projectId")
@@ -475,5 +481,10 @@ $sample 随机取样
 $limit取前几 $skip 跳过前几
 $unwind 将数组降维，共同字段冗余
 $sortByCount 对数组进行统计
+$arrayElemAt 取数组中的索引   { $arrayElemAt: [ [ 1, 2, 3 ], 0 ] }  ：  1
+$mergeObjects 合并各个对象字段，相同字段取后面的值    $mergeObjects：[{a：1}，{a：2，b：2}，{a：3，c：3}]   :  {a：3，b：2，c：3} 
+
+多个使用：
+$ replaceRoot ： {  newRoot ： {  $ mergeObjects ： [  {  $ arrayElemAt ： [  “$ fromItems” ， 0  ]  }， “$$ ROOT”  ]  }  }
 ```
 

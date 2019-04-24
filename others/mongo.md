@@ -389,6 +389,7 @@ spring-mongodb-data  返回指定字段
 ]).pretty()
 ```
 ```
+update:2019/04/24 
  //将关联后的 project和父级字段合并
  {$replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$project", 0 ] }, "$$ROOT" ] } }},
  //再删除project

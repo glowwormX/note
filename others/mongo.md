@@ -282,5 +282,9 @@ $mergeObjects 合并各个对象字段，相同字段取后面的值    $mergeOb
 
 多个使用：
 $ replaceRoot ： {  newRoot ： {  $ mergeObjects ： [  {  $ arrayElemAt ： [  “$ fromItems” ， 0  ]  }， “$$ ROOT”  ]  }  }
+
+$arrayToObject 将数组转成object(list转成map, list中必须有k,v字段)
+$concatArrays 连接数组
+$objectToArray  
 ```
 

@@ -287,4 +287,10 @@ $arrayToObject 将数组转成object(list转成map, list中必须有k,v字段)
 $concatArrays 连接数组
 $objectToArray  
 ```
+```
+$group后转成map：
+聚合最后再加：
+{$group:{_id:null, 'data': { '$push': { 'k': '$_id', 'v': '$errorCount'}}}},
+{$replaceRoot:{'newRoot':{'$arrayToObject':'$data'}}}
+```
 

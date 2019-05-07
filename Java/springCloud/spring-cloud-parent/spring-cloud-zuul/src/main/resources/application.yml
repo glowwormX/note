@@ -1,0 +1,22 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8888
+spring:
+  application:
+    name: gateway-service-zuul
+  zipkin:
+    base-url: http://localhost:9600
+  sleuth:
+    sampler:
+      percentage: 1.0
+#zuul:
+#  #是否开启重试功能
+#  retryable: true
+#ribbon:
+#  #对当前服务的重试次数
+#  MaxAutoRetries: 2
+#  #切换相同Server的次数
+#  MaxAutoRetriesNextServer: 0

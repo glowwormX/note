@@ -1,0 +1,27 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    enabled: true
+server:
+  port: 9100
+spring:
+  application:
+    name: spring-cloud-consumer
+  rabbitmq:
+    host: 127.0.0.1
+    password: 123456
+    port: 5672
+    username: admin
+    #虚拟主机 一个虚拟主机持有一组交换机、队列和绑定
+    virtual-host: /
+  zipkin:
+    base-url: http://localhost:9600
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+#配置refresh时 post请求时不会报HTTP（401），未授权
+#management.security.enabled = false

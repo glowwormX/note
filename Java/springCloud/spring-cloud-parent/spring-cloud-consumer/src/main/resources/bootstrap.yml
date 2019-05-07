@@ -1,9 +1,12 @@
-spring.cloud.config.name=neo-config
-spring.cloud.config.profile=dev,test
-spring.cloud.config.label=master
-spring.cloud.config.discovery.enabled=true
-spring.cloud.config.discovery.serviceId=spring-cloud-config-server
-
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: spring-cloud-config-server
+      label: master
+      name: neo-config
+      profile: dev,test
 
 #spring.application.name：对应{application}部分
 #spring.cloud.config.profile：对应{profile}部分

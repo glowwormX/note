@@ -1,0 +1,27 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/glowwormX/self-work/     # 配置git仓库的地址
+          search-paths: spring-cloud-parent/config-repo    # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username:                                              # git仓库的账号
+          password:                                              # git仓库的密码
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: 123456
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/   ## 注册中心eurka地址
+
+management:
+  security:
+     enabled: false

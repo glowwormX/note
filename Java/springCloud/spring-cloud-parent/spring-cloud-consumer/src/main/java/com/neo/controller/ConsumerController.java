@@ -64,7 +64,7 @@ public class ConsumerController {
     }
 
     @RequestMapping("/rabbitmqSendObj")
-    public Map<String, Object> rabbitmqSendObj(Order order) {
+    public Map<String, Object> rabbitmqSendObj(Order order, String token) {
         Map<String, Object> map = new HashMap<>();
         for (int i = 0; i < 10; i++) {
             order.setId(i+"");

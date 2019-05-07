@@ -39,7 +39,6 @@ public class TokenFilter extends ZuulFilter {
         if (StringUtils.isNotBlank(token)) {
             ctx.setSendZuulResponse(true); //对请求进行路由
             ctx.setResponseStatusCode(200);
-            ctx.set("user", token);
             ctx.set("isSuccess", true);
             return null;
         } else {

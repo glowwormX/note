@@ -16,13 +16,16 @@ import java.util.Date;
 public class RabbitMQSend {
     @Autowired
     private AmqpTemplate rabbitTemplate;
+
     public void send(String name) {
-        String msg = "hello "+name+":"+new Date();
+        String msg = "hello " + name + ":" + new Date();
 //        System.out.println("Sender:"+msg);
         this.rabbitTemplate.convertAndSend("hello", msg);
     }
 
-    /** 发送对象
+    /**
+     * 发送对象
+     *
      * @param order
      */
     public void sendObj(Order order) {
@@ -31,9 +34,10 @@ public class RabbitMQSend {
 
     public void sendExchange(Order order) {
         order.setId("topic.message");
-        this.rabbitTemplate.convertAndSend("exchange","topic.message", order);
+        this.rabbitTemplate.convertAndSend("exchange", "topic.message", order);
+        System.out.println("给topic.message发送一个order" + order);
         order.setId("topic.xxx");
-        this.rabbitTemplate.convertAndSend("exchange","topic.xxx", order);
-
+        this.rabbitTemplate.convertAndSend("exchange", "topic.xxx", order);
+        System.out.println("给topic.xxx发送一个order" + order);
     }
 }

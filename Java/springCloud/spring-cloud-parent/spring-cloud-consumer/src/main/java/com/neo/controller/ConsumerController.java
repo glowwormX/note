@@ -31,7 +31,7 @@ public class ConsumerController {
 
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {
-        return HelloRemote.hello(name)+"  consumer1";
+        return HelloRemote.hello(name)+" and by consumer";
     }
 
     @RequestMapping("/getMap/{name}")
@@ -71,7 +71,7 @@ public class ConsumerController {
             rabbitMQSend.sendObj(order);
         }
         map.put("status", "200");
-        map.put("message", "已发送order");
+        map.put("message", "已发送10个order");
         return map;
     }
 
@@ -84,25 +84,25 @@ public class ConsumerController {
         return map;
     }
 
-    @RequestMapping("/timeTest")
-    public void contextLoads() throws ParseException {
-        Date date = calculateDistributionTimeByOrderCreateTime(new Date());
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String timeStr = df.format(new Date());
-        Date timeDate = df.parse(timeStr);
-    }
-    final DateTime DISTRIBUTION_TIME_SPLIT_TIME = new DateTime().withTime(15,0,0,0);
-    private Date calculateDistributionTimeByOrderCreateTime(Date orderCreateTime){
-        DateTime orderCreateDateTime = new DateTime(orderCreateTime);
-        Date tomorrow = orderCreateDateTime.plusDays(1).toDate();
-        Date theDayAfterTomorrow = orderCreateDateTime.plusDays(2).toDate();
-        return orderCreateDateTime.isAfter(DISTRIBUTION_TIME_SPLIT_TIME) ? wrapDistributionTime(theDayAfterTomorrow) : wrapDistributionTime(tomorrow);
-    }
-    private Date wrapDistributionTime(Date distributionTime){
-        DateTime currentDistributionDateTime = new DateTime(distributionTime);
-        DateTime plusOneDay = currentDistributionDateTime.plusDays(1);
-        boolean isSunday = (DateTimeConstants.SUNDAY == currentDistributionDateTime.getDayOfWeek());
-        return isSunday ? plusOneDay.toDate() : currentDistributionDateTime.toDate() ;
-    }
+//    @RequestMapping("/timeTest")
+//    public void contextLoads() throws ParseException {
+//        Date date = calculateDistributionTimeByOrderCreateTime(new Date());
+//        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String timeStr = df.format(new Date());
+//        Date timeDate = df.parse(timeStr);
+//    }
+//    final DateTime DISTRIBUTION_TIME_SPLIT_TIME = new DateTime().withTime(15,0,0,0);
+//    private Date calculateDistributionTimeByOrderCreateTime(Date orderCreateTime){
+//        DateTime orderCreateDateTime = new DateTime(orderCreateTime);
+//        Date tomorrow = orderCreateDateTime.plusDays(1).toDate();
+//        Date theDayAfterTomorrow = orderCreateDateTime.plusDays(2).toDate();
+//        return orderCreateDateTime.isAfter(DISTRIBUTION_TIME_SPLIT_TIME) ? wrapDistributionTime(theDayAfterTomorrow) : wrapDistributionTime(tomorrow);
+//    }
+//    private Date wrapDistributionTime(Date distributionTime){
+//        DateTime currentDistributionDateTime = new DateTime(distributionTime);
+//        DateTime plusOneDay = currentDistributionDateTime.plusDays(1);
+//        boolean isSunday = (DateTimeConstants.SUNDAY == currentDistributionDateTime.getDayOfWeek());
+//        return isSunday ? plusOneDay.toDate() : currentDistributionDateTime.toDate() ;
+//    }
 
 }

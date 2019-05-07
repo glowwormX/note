@@ -39,15 +39,16 @@ springcloud断路器的作用
             当服务一直处于正常状态 能正常调用 断路器关闭
 
 demo：
-https://github.com/glowwormX/self-work/tree/master/spring-cloud-parent
+https://github.com/glowwormX/note/tree/master/Java/springCloud/spring-cloud-parent
 ``` lua
 spring-cloud-parent   
 ├── spring-cloud-eureka -- 8761 高可用注册中心，相互注册    
 ├── spring-cloud-eureka1 -- 8762 高可用注册中心，相互注册     
 ├── spring-cloud-config-server -- 8001 配置中心服务器，映射github上配置，使用Bus+RabbitMQ更新配置,/bus/refresh更新     
 ├── spring-cloud-provider -- 9000 服务提供者，向eureka注册   
-├── spring-cloud-provider1 -- 9001 服务提供者1   
-├── spring-cloud-consumer -- 9100 消费者，熔断机制，spring-cloud-config客户端   
+├── spring-cloud-provider2 -- 9001 服务提供者1  有redis 
+├── spring-cloud-consumer -- 9100 消费者，熔断机制，spring-cloud-config客户端, 
+├                             RabbitMQ集成,交换、队列机制， 接受请求发送给RabbitMQ，consumer、provider中有消费
 ├── spring-cloud-consumer1 -- 9101 消费者1，熔断机制，spring-cloud-config客户端    
 └── spring-cloud-zuul -- 8888 网关（入口，控制登录token等）   
 
@@ -59,3 +60,6 @@ consumer调用provider1
 consumer1调用provider1
 ```
 
+rabbit安装   
+https://www.jianshu.com/p/2d4b81c8b403   
+http://blog.topspeedsnail.com/archives/4750   

@@ -26,4 +26,12 @@ public class Order implements Serializable {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", price='" + price + '\'' +
+                '}';
+    }
 }

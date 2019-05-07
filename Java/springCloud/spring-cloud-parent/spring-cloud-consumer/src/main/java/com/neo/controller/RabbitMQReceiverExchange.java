@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 public class RabbitMQReceiverExchange {
     @RabbitHandler
     public void process(Order order) {
-        System.out.println("topic.message收到了"+order.getId() +";"+order.getPrice());
+        System.out.println("topic.message 配置为 topic.message 收到了" + order);
     }
 }

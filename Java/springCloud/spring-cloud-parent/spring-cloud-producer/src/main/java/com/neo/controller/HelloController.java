@@ -17,7 +17,7 @@ public class HelloController {
     @RequestMapping("/hello")
     public String index(@RequestParam String name) {
         logger.info("request one  name is "+name);
-        return "hello "+name+"，this is first messge";
+        return "hello "+name+", by producer";
     }
 
     @RequestMapping("/getMap")

@@ -34,7 +34,7 @@ public class HelloController {
         try (Jedis jedis = jedisPool.getResource()) {
             jedis.setex(uuid, 1000, name);
         }
-        return "hello "+name+"，this is two messge";
+        return "hello "+name+",by producer2";
     }
 
     @RequestMapping("/getMap")

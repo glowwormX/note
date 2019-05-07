@@ -1,0 +1,24 @@
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+server:
+  port: 9002
+spring:
+  application:
+    name: spring-cloud-producer
+  redis:
+    database: 4
+    host: 192.168.1.101
+    pool:
+      max-active: 100
+      max-idle: 10
+      max-wait: 100000
+    port: 6379
+    timeout: 0
+  cloud:
+    consul:
+      discovery:
+        serviceName: spring-cloud-producer
+      host: localhost
+      port: 8500

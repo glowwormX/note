@@ -83,7 +83,8 @@ spring-cloud-parent
 ├── spring-cloud-eureka1 -- 8762 高可用注册中心，相互注册     
 ├── spring-cloud-config-server -- 8001 配置中心服务器，映射github上配置，使用Bus+RabbitMQ更新配置,/bus/refresh更新     
 ├── spring-cloud-provider -- 9000 服务提供者，向eureka注册   
-├── spring-cloud-provider2 -- 9001 服务提供者1  有redis 
+├── spring-cloud-provider1 -- 9001 服务提供者1  有redis 
+├── spring-cloud-provider2 -- 9002 使用spring cloud consul做注册中心
 ├── spring-cloud-consumer -- 9100 消费者，熔断机制，spring-cloud-config客户端, 
 ├                             RabbitMQ集成,交换、队列机制， 接受请求发送给RabbitMQ，consumer、provider中有消费
 ├── spring-cloud-consumer1 -- 9101 消费者1，熔断机制，spring-cloud-config客户端    

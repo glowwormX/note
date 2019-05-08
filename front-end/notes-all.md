@@ -1,3 +1,6 @@
+npm node安装   
+https://blog.csdn.net/qq_41204927/article/details/83537207
+
 # 选择器  
 ## css的三种选择器  
 ```

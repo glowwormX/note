@@ -110,6 +110,7 @@ https://www.jianshu.com/p/6648efd24f25
             db.events.save(e);
           }
         )
+        update $rename命令
 
 1. 更新List中符合条件的内容 
 

@@ -33,9 +33,12 @@ _**垃圾收集器**_：
 **老年代ParallelGC回收器**：JDK1.6，与新生代ParNewGC回收器使用的系统非常注重吞吐量  
 **GMS回收器：  **
 **G1回收器：**  详解 https://www.jianshu.com/p/aef0f4765098
+![](/imgs/GC.jpg)
 
 系列文章   
 https://crowhawk.github.io/2017/08/15/jvm_3/   
+java8
+https://blog.csdn.net/weixin_42987339/article/details/81974739
 
 **对象分配过程**   
 尝试栈上分配  

@@ -32,7 +32,7 @@ _**垃圾收集器**_：
 **新生代ParallelGC回收器**：与ParNewGC差不多，特点：注重系统吞吐量，可以调吞吐量、停顿时间，另外可以自动调整新生代、eden和survivor比例、晋升老年代年龄、堆大小、吞吐量、停顿时间  
 **老年代ParallelGC回收器**：JDK1.6，与新生代ParNewGC回收器使用的系统非常注重吞吐量  
 **GMS回收器：  **
-**G1回收器：**  
+**G1回收器：**  详解 https://www.jianshu.com/p/aef0f4765098
 
 系列文章   
 https://crowhawk.github.io/2017/08/15/jvm_3/   

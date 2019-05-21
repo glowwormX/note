@@ -31,6 +31,8 @@ docker exec -it some-mysql bash
 exit   
 查看日志   
 docker logs some-mysql
+详细信息
+docker inspect
 ```
 基本命令   
 http://blog.51cto.com/ityouknow/2083688
